@@ -246,13 +246,8 @@ static uint forcemousemod = ShiftMask;
  */
 static MouseShortcut mshortcuts[] = {
 	/* mask                 button   function        argument       release  screen */
-	{ XK_ANY_MOD,           Button2, clippaste,      {.i = 0},      1 },
-	{ ShiftMask,            Button4, ttysend,        {.s = "\033[5;2~"} },
-	{ ShiftMask,            Button5, ttysend,        {.s = "\033[6;2~"} },
 	{ XK_NO_MOD,            Button4, kscrollup,      {.i = 1},      0, S_PRI },
 	{ XK_NO_MOD,            Button5, kscrolldown,    {.i = 1},      0, S_PRI },
-	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"}, 0, S_ALT },
-	{ XK_ANY_MOD,           Button5, ttysend,        {.s = "\005"}, 0, S_ALT },
 };
 
 /* Internal keyboard shortcuts. */
@@ -269,20 +264,11 @@ static char *setbgcolorcmd[] = { "/bin/sh", "-c",
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function         argument   screen */
-	{ XK_ANY_MOD,           XK_Break,       sendbreak,       {.i =  0} },
-	{ ControlMask,          XK_Print,       toggleprinter,   {.i =  0} },
-	{ ShiftMask,            XK_Print,       printscreen,     {.i =  0} },
-	{ XK_ANY_MOD,           XK_Print,       printsel,        {.i =  0} },
-	{ TERMMOD,              XK_Prior,       zoom,            {.f = +1} },
-	{ TERMMOD,              XK_Next,        zoom,            {.f = -1} },
-	{ TERMMOD,              XK_Home,        zoomreset,       {.f =  0} },
+	{ TERMMOD,              XK_plus,       	zoom,            {.f = +1} },
+	{ TERMMOD,              XK_underscore,  zoom,            {.f = -1} },
+	{ TERMMOD,              XK_space,       zoomreset,       {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,        {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,       {.i =  0} },
-	{ ShiftMask,            XK_Page_Up,     kscrollup,       {.i = -1}, S_PRI },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,     {.i = -1}, S_PRI },
-	{ TERMMOD,              XK_Y,           clippaste,       {.i =  0} },
-	{ ShiftMask,            XK_Insert,      clippaste,       {.i =  0} },
-	{ TERMMOD,              XK_Num_Lock,    numlock,         {.i =  0} },
 	{ TERMMOD,              XK_U,           externalpipe,    { .v = openurlcmd } },
 };
 
